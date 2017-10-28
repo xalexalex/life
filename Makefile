@@ -1,18 +1,12 @@
-CFLAGS   = -std=c99 -Wall -pedantic -O2
-DESTDIR=/home/al/bin
+CFLAGS=-std=c99 -Wall -pedantic -O2
 
 all: xlife termlife
 
-xlife: xlife.c
+xlife: life.o x.o
 	cc $(CFLAGS) $^ -lX11 -o$@
 
-termlife: termlife.c
+termlife: life.o term.o
 	cc $(CFLAGS) $^ -o$@
 
-install: all
-	mkdir -p $(DESTDIR)
-	cp xlife $(DESTDIR)/xlife
-	cp termlife $(DESTDIR)/termlife
-
 clean:
-	rm xlife termlife
+	rm xlife termlife *.o
