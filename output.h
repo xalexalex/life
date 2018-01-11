@@ -2,7 +2,7 @@
 #define Y 40
 #define DELAY 200
 #define ONEIN 5
-#define LIVE 'O'
+#define ALIVE 'O'
 #define DEAD ' '
 #define MSG_EXIT 1
 

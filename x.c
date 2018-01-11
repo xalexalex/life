@@ -50,7 +50,7 @@ void output(char field[Y][X])
 	XSetForeground(d,DefaultGC(d,s),BlackPixel(d,s));
 	for(int i = 0; i < Y; i++) {
 		for(int j = 0; j < X; j++) {
-			if(field[i][j]==LIVE)
+			if(field[i][j]==ALIVE)
 				XFillRectangle(d,w,DefaultGC(d,s),i*PIX,j*PIX,PIX,PIX);
 		}
 	}

@@ -17,17 +17,17 @@ int main()
 
 	for(int i = 0; i < Y; i++)
 		for(int j = 0; j < X; j++)
-			field[i][j] = (rand()%ONEIN==0)?LIVE:DEAD; 
+			field[i][j] = (rand()%ONEIN==0)?ALIVE:DEAD;
 
 	//field[i][j] = DEAD;
 
 	/* glider */
 	/*
-	   field[2][2] = LIVE;
-	   field[2][3] = LIVE;
-	   field[2][4] = LIVE;
-	   field[3][4] = LIVE;
-	   field[4][2] = LIVE;
+	   field[2][2] = ALIVE;
+	   field[2][3] = ALIVE;
+	   field[2][4] = ALIVE;
+	   field[3][4] = ALIVE;
+	   field[4][2] = ALIVE;
 	   */
 
 	/* main loop */
@@ -55,7 +55,7 @@ void step()
 			int neigh = neighbors(i,j,old);
 			if(old[i][j]==DEAD) { /* dead cell */
 				if(neigh==3)
-					field[i][j] = LIVE;
+					field[i][j] = ALIVE;
 			} else { /* live cell */
 				if(neigh != 2 && neigh != 3)
 					field[i][j] = DEAD;
@@ -67,11 +67,11 @@ void step()
 /* FIYME maybe make old global */
 int neighbors(int x, int y, char old[Y][X])
 {
-	int ret = old[x][y]==LIVE?-1:0;
+	int ret = old[x][y]==ALIVE?-1:0;
 
 	for(int i = -1; i < 2; i++)
 		for(int j = -1; j < 2; j++)
-			if(old[(x+i+Y)%Y][(y+j+X)%X]==LIVE)
+			if(old[(x+i+Y)%Y][(y+j+X)%X]==ALIVE)
 				ret++;
 
 	return ret;
